@@ -26,6 +26,10 @@ TODO: Better documentation
 
 **As you can probably tell, this is very much a work in progress, and does not currently work very much. Much more to come soon.**
 
+### Stretch goals
+
+- WebSockets to live-update the shutdown/startup process
+
 ## Contributing
 
 Fork it, send me a pull request. Please and thank you.
