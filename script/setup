@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if [[ $DO_TOKEN == "" ]]; then
+  echo "You need to set your DigitalOcen access token!"
+  exit 1
+fi
+
+if ! hash redis-cli; then
+  echo "You need to install redis first!"
+  exit 1
+fi
+
+echo "What is your current server's ID (if any)?"
+read server_id
+if [[ $server_id != "" ]]; then
+  redis-cli set minecraft_id $server_id
+fi
+
+echo "What is the ID of the image you'd like to use (if any)?"
+read image_id
+if [[ $image_id != "" ]]; then
+  redis-cli set minecraft_image_id $image_id
+fi
