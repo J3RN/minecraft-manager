@@ -14,10 +14,11 @@ Enter Minecraft Manager. What does it do?
   - TODO: Check if you actually have SSH keys
 - Updates your first floating IP to point to this new server.
   - TODO: Make sure you have a floating IP first
+  - TODO: Have you set the floating IP if you want this to happen
 
 ### When you move the switch to "off"
 
-- Powers off the last droplet you powered on with the manager (let's hope it's right).
+- Powers off the last droplet you powered on with the manager.
 - Takes a snapshot of that droplet and records it's ID to use for the next droplet.
 - Destroys the droplet so it stops charging you money.
 
