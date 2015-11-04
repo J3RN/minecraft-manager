@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'pathname'
+require 'redis'
 
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
@@ -26,4 +27,23 @@ Dir.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system "touch tmp/restart.txt"
+
+  if !ENV["DO_TOKEN"]
+    puts "You need to set your DigitalOcean access token!"
+    exit 1
+  end
+
+  redis = Redis.new()
+
+  puts "What is your current server's ID?"
+  server_id = gets.chomp
+  redis.set('minecraft_id', server_id)
+
+  puts "What is the ID of the image you would like to use?"
+  image_id = gets.chomp
+  redis.set('minecraft_image_id', image_id)
+
+  puts "What is the floating IP that you would like to use?"
+  floating_ip = gets.chomp
+  redis.set('minecraft_floating_ip', floating_ip)
 end

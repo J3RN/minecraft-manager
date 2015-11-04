@@ -9,5 +9,6 @@ $(document).ready(function() {
             }).fail(function() {
                 $(".errors").show();
             });
+        $(this).prop('disabled', true);
     })
 });
