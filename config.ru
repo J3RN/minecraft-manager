@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift(File.expand_path('./'))
-require 'app.rb'
+# This file is used by Rack-based servers to start the application.
 
-run MinecraftManager
+require ::File.expand_path('../config/environment', __FILE__)
+run Rails.application
