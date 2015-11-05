@@ -2,39 +2,40 @@ class StopWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
-  def wait_for_action(client, action_id)
-    while client.droplet_actions.find(id: action_id).status != "completed"
+  def wait_for_action(phoenix, action_id)
+    while phoenix.action_status(action_id) != "completed"
       sleep 30
     end
   end
 
-  def perform
-    client = DropletKit::Client.new(access_token: ENV["DO_TOKEN"])
-    redis = Redis.new
+  def perform(phoenix_id)
+    phoenix = Phoenix.find(phoenix_id)
+    return unless phoenix.on?
 
-    current_id = redis.get("minecraft_id")
+    # Update status for being shut down
+    phoenix.update!(status: "Burning")
 
-    if client.droplets.find(id: current_id).status != "off"
-      # Power down the server
-      shutdown_action = client.droplet_actions.shutdown(droplet_id: current_id)
-
-      # Wait for the shutdown to complete
-      wait_for_action(client, shutdown_action.id)
-    end
+    # Power down the server
+    shutdown_action = phoenix.shutdown
+    wait_for_action(phoenix, shutdown_action.id) if shutdown_action
 
     # Snapshot the server
-    snap_name = "Minecraft - #{Time.now.strftime('%FT%T%z')}"
-    snapshot_action = client.droplet_actions.snapshot(droplet_id: current_id,
-                                                      name: snap_name)
+    snapshot_action = phoenix.snapshot
+    wait_for_action(phoenix, snapshot_action.id) if snapshot_action
 
-    # Wait for the snapshot to finish
-    wait_for_action(client, snapshot_action.id)
-
-    # Record image ID
-    snapshot_id = client.droplets.find(id: current_id).snapshot_ids.last
-    redis.set('minecraft_image_id', snapshot_id)
+    # Update image ID
+    phoenix.update!(image_id: phoenix.snapshot_ids.last)
 
     # Destroy the server
-    client.droplets.delete(id: current_id)
+    phoenix.burn!
+
+    # Defer to default status
+    phoenix.update!(status: nil)
+  rescue Exception => e
+    puts "Stop failed"
+    puts e.message
+    puts e.backtrace.inspect
+
+    phoenix.update!(status: "Failed to burn")
   end
 end

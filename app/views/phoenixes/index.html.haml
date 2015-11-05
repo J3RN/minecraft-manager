@@ -1,0 +1,28 @@
+%h1 Phoenixes
+
+%table.table.table-responsive
+  %thead
+    %tr
+      %th Phoenix
+      %th IP
+      %th Status
+      %th
+      %th
+      %th
+  %tbody
+    - @phoenixes.each do |phoenix|
+      %tr
+        %td= link_to phoenix.name, edit_phoenix_path(phoenix)
+        %td= phoenix.ip
+        %td= phoenix.total_status
+        %td
+          = form_for phoenix do |f|
+            - if phoenix.on?
+              = f.hidden_field :on, value: false
+              = f.submit 'Turn off'
+            - else
+              = f.hidden_field :on, value: true
+              = f.submit 'Turn on'
+        %td
+          = link_to(phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }) do
+            %span.glyphicon.glyphicon-remove

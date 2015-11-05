@@ -2,35 +2,31 @@ class StartWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
-  def perform
-    client = DropletKit::Client.new(access_token: ENV["DO_TOKEN"])
-    redis = Redis.new
+  def perform(phoenix_id)
+    phoenix = Phoenix.find(phoenix_id)
+    return if phoenix.on?
 
-    # Fetch the image from Redis
-    image_id = redis.get('minecraft_image_id')
-    floating_ip = redis.get('minecraft_floating_ip')
-
-    # Fetch the SSH key from DO
-    # TODO: Have you set your SSH key
-    ssh_key = client.ssh_keys.all.first.id
+    # Set being brought up status
+    phoenix.update!(status: "Being born")
 
     # Create new droplet
-    droplet = DropletKit::Droplet.new(name: SecureRandom.hex(10),
-                                      region: "nyc3",
-                                      image: image_id,
-                                      size: '2gb',
-                                      ssh_keys: [ssh_key])
-    created = client.droplets.create(droplet)
-
-    # Update Redis
-    redis.set('minecraft_id', created.id)
+    phoenix.create_droplet!
 
     # Wait for create to finish
-    while client.droplets.find(id: created.id).status != "active"
+    while phoenix.do_status != "active"
       sleep 30
     end
 
-    # Update Floating IP
-    client.floating_ip_actions.assign(ip: floating_ip, droplet_id: created.id)
+    # Update the floating IP on DigitalOcean
+    phoenix.update_do_floating_ip
+
+    # Defer to DO for status
+    phoenix.update!(status: nil)
+  rescue Exception => e
+    puts "Start failed"
+    puts e.message
+    puts e.backtrace.inspect
+
+    phoenix.update!(status: "Failed to be born")
   end
 end
