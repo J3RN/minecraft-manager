@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require 'pathname'
-require 'redis'
 
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)

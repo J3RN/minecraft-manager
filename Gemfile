@@ -15,7 +15,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq', '~> 3.4'
 gem 'droplet_kit', '~> 1.3'
 gem 'haml-rails', '~> 0.9'
-gem 'redis'
 gem 'bcrypt'
 gem 'bootstrap-sass'
 
