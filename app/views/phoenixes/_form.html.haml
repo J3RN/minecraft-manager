@@ -10,16 +10,16 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :droplet_id, "Droplet ID (Optional)"
-    = f.number_field :droplet_id
+    = f.label :image_id, "Image"
+    = f.select :image_id, @images
   .field
-    = f.label :image_id
-    = f.number_field :image_id
+    = f.label :droplet_id, "Current droplet (Optional)"
+    = f.select :droplet_id, @droplets, include_blank: true
   .field
     = f.label :floating_ip, "Floating IP (Optional)"
-    = f.text_field :floating_ip
+    = f.select :floating_ip, @floating_ips, include_blank: true
   .field
-    = f.label :ssh_key_id, "SSH Key ID (Optional)"
-    = f.number_field :ssh_key_id
+    = f.label :ssh_key_id, "SSH Key (Optional)"
+    = f.select :ssh_key_id, @ssh_keys, include_blank: true
   .actions
     = f.submit 'Save'

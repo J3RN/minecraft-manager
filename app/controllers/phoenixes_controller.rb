@@ -1,13 +1,16 @@
 class PhoenixesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_access_token!, only: [:new, :edit]
   before_action :set_phoenix, only: [:edit, :update, :destroy]
-  before_action :set_user, only: [:index, :create]  # TODO: Also change this
+  before_action :set_extras, only: [:new, :edit]
 
   def index
-    @phoenixes = @user.phoenixes.all
+    @phoenixes = current_user.phoenixes.all
   end
 
   def new
     @phoenix = Phoenix.new
+    @droplets
   end
 
   def edit
@@ -15,10 +18,10 @@ class PhoenixesController < ApplicationController
 
   def create
     @phoenix = Phoenix.new(phoenix_params)
-    @phoenix.user = @user
+    @phoenix.user = current_user
 
     if @phoenix.save
-      redirect_to @phoenix, notice: 'Phoenix was successfully created.'
+      redirect_to phoenixes_url, notice: 'Phoenix was successfully created.'
     else
       render :new
     end
@@ -56,8 +59,19 @@ class PhoenixesController < ApplicationController
       @phoenix = Phoenix.find(params[:id])
     end
 
-    def set_user
-      @user = User.first      # TODO: Change this bad, bad code
+    def set_extras
+      client = DropletKit::Client.new(access_token: current_user.access_token)
+
+      @droplets = client.droplets.all.to_a.map { |x| [x.name, x.id] }
+      @images = client.images.all.to_a.map { |x| [x.name, x.id] }
+      @floating_ips = client.floating_ips.all.to_a.map { |x| x.ip }
+      @ssh_keys = client.ssh_keys.all.to_a.map { |x| [x.name, x.id] }
+    end
+
+    def ensure_access_token!
+      return if current_user.access_token.present?
+
+      redirect_to phoenixes_url, alert: 'You need to add an access token to edit or create phoenixes!'
     end
 
     def phoenix_params

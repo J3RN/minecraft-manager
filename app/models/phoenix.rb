@@ -21,15 +21,18 @@ class Phoenix < ActiveRecord::Base
   end
 
   def do_status
+    return unless self.droplet_id.present?
     return unless self.on?
 
     client.droplets.find(id: self.droplet_id).status
   end
 
   def on?
-    begin client.droplets.find(id: self.droplet_id)
+    id = self.droplet_id
+
+    if id and client.droplets.all.map {|x| x.id}.include? id
       true
-    rescue
+    else
       false
     end
   end

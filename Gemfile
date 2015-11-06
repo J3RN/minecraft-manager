@@ -17,6 +17,7 @@ gem 'droplet_kit', '~> 1.3'
 gem 'haml-rails', '~> 0.9'
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'

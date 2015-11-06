@@ -1,4 +1,5 @@
 %h1 Phoenixes
+= link_to "New phoenix", new_phoenix_path
 
 %table.table.table-responsive
   %thead
@@ -19,10 +20,10 @@
           = form_for phoenix do |f|
             - if phoenix.on?
               = f.hidden_field :on, value: false
-              = f.submit 'Turn off'
+              = f.submit 'Turn off', class: ["btn", "btn-danger"]
             - else
               = f.hidden_field :on, value: true
-              = f.submit 'Turn on'
+              = f.submit 'Turn on', class: ["btn", "btn-primary"]
         %td
           = link_to(phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }) do
             %span.glyphicon.glyphicon-remove
