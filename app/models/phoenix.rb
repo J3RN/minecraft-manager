@@ -41,6 +41,10 @@ class Phoenix < ActiveRecord::Base
     return self.total_status == "active"
   end
 
+  def failed?
+    return self.total_status.downcase.include? "fail"
+  end
+
   def create_droplet!
     droplet = DropletKit::Droplet.new(name: SecureRandom.hex(10),
                                       region: "nyc3",
