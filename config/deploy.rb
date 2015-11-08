@@ -83,18 +83,18 @@ namespace :sidekiq do
   set_default :sidekiqctl, lambda { "#{bundle_prefix} sidekiqctl" }
 
   # Set the default sidekiq PID location
-  set_default :sidekiq_pid_file, 'pids/sidekiq.pid'
+  set_default :sidekiq_pid, lambda { "#{deploy_to}/#{current_path}/pids/sidekiq.pid" }
 
   # Set the default sidekiq PID location
-  set_default :sidekiq_log, 'log/sidekiq.log'
+  set_default :sidekiq_log, lambda { "#{deploy_to}/#{current_path}/log/sidekiq.log" }
 
   desc "Quiet Sidekiq"
   task :quiet => :environment do
     queue %[echo "-----> Quiet sidekiq (stop accepting new work)"]
     queue %{
-      if [ -f #{sidekiq_pid_file} ] && kill -0 `cat #{sidekiq_pid_file}`> /dev/null 2>&1; then
+      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}`> /dev/null 2>&1; then
         cd "#{deploy_to}/#{current_path}"
-        #{echo_cmd %[#{sidekiqctl} quiet #{sidekiq_pid_file}]}
+        #{echo_cmd %[#{sidekiqctl} quiet #{sidekiq_pid}]}
       else
         echo 'Skip quiet command (no pid file found)'
       fi
@@ -105,9 +105,9 @@ namespace :sidekiq do
   task :stop => :environment do
     queue %[echo "-----> Stop sidekiq"]
     queue %[
-      if [ -f #{sidekiq_pid_file} ] && kill -0 `cat #{sidekiq_pid_file}`> /dev/null 2>&1; then
+      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}`> /dev/null 2>&1; then
         cd "#{deploy_to}/#{current_path}"
-        #{echo_cmd %[#{sidekiqctl} stop #{pid_file}]}
+        #{echo_cmd %[#{sidekiqctl} stop #{sidekiq_pid}]}
       else
         echo 'Skip stopping sidekiq (no pid file found)'
       fi
