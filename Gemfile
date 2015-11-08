@@ -19,10 +19,18 @@ gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'devise'
 
+# Passenger as the server
+gem 'passenger'
+
+# Mina for deploys
+gem 'mina'
+
+# Dotenv for sekrets
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
 end
-
