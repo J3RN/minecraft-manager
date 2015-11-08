@@ -37,6 +37,10 @@ class Phoenix < ActiveRecord::Base
     end
   end
 
+  def active?
+    return self.total_status == "active"
+  end
+
   def create_droplet!
     droplet = DropletKit::Droplet.new(name: SecureRandom.hex(10),
                                       region: "nyc3",
