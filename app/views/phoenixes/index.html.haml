@@ -16,7 +16,7 @@
             - if phoenix.active?
               = f.hidden_field :on, value: false
               = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
-            - elsif phoenix.on? || phoenix.failed?
+            - elsif phoenix.on?
               = phoenix.status
             - else
               = f.hidden_field :on, value: true
