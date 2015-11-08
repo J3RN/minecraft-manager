@@ -1,3 +1,4 @@
 %h1#page-title Minecraft Manager
 
-= link_to "Your phoenixes", phoenixes_path
+- if user_signed_in?
+  = link_to "Your phoenixes", phoenixes_path

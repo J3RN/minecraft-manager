@@ -18,7 +18,10 @@
           - else
             %li= link_to "Log In", new_user_session_path
             %li= link_to "Register", new_user_registration_path
-    .errors
-      .notice= notice
-      .alert= alert
-    = yield
+    .container-fluid
+      .errors
+        - if notice
+          .alert.alert-success= notice
+        - if alert
+          .alert.alert-danger= alert
+      = yield
