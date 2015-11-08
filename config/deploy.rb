@@ -76,7 +76,17 @@ task :deploy => :environment do
 end
 
 namespace :sidekiq do
-  set :sidekiq_pid_file, 'pids/sidekiq.pid'
+  # Sets the path to sidekiq.
+  set_default :sidekiq, lambda { "#{bundle_bin} exec sidekiq" }
+
+  # Sets the path to sidekiqctl.
+  set_default :sidekiqctl, lambda { "#{bundle_prefix} sidekiqctl" }
+
+  # Set the default sidekiq PID location
+  set_default :sidekiq_pid_file, 'pids/sidekiq.pid'
+
+  # Set the default sidekiq PID location
+  set_default :sidekiq_log, 'log/sidekiq.log'
 
   desc "Quiet Sidekiq"
   task :quiet => :environment do
@@ -84,7 +94,7 @@ namespace :sidekiq do
     queue %{
       if [ -f #{sidekiq_pid_file} ] && kill -0 `cat #{sidekiq_pid_file}`> /dev/null 2>&1; then
         cd "#{deploy_to}/#{current_path}"
-        #{echo_cmd %{sidekiqctl quiet #{sidekiq_pid_file}}}
+        #{echo_cmd %[#{sidekiqctl} quiet #{sidekiq_pid_file}]}
       else
         echo 'Skip quiet command (no pid file found)'
       fi
