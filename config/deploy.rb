@@ -119,7 +119,7 @@ namespace :sidekiq do
     queue %[echo "-----> Start sidekiq"]
     queue %{
       cd "#{deploy_to}/#{current_path}"
-      #{echo_cmd %[#{sidekiq} -d -e #{rails_env} -P #{sidekiq_pid_file} -L #{sidekiq_log}] }
+      #{echo_cmd %[#{sidekiq} -d -e #{rails_env} -P #{sidekiq_pid} -L #{sidekiq_log}] }
     }
   end
 
