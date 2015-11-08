@@ -86,7 +86,7 @@ namespace :sidekiq do
   set_default :sidekiq_pid, lambda { "#{deploy_to}/#{current_path}/pids/sidekiq.pid" }
 
   # Set the default sidekiq PID location
-  set_default :sidekiq_log, lambda { "#{deploy_to}/#{current_path}/log/sidekiq.log" }
+  set_default :sidekiq_log, 'log/sidekiq.log'
 
   desc "Quiet Sidekiq"
   task :quiet => :environment do
