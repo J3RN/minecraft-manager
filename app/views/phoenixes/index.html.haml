@@ -28,7 +28,7 @@
                 - if phoenix.active?
                   = f.hidden_field :on, value: false
                   = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
-                - elsif !phoenix.on?
+                - elsif phoenix.total_status == "Burnt" || phoenix.failed?
                   = f.hidden_field :on, value: true
                   = f.submit 'Turn on', class: ["btn", "btn-primary"], data: { confirm: 'Are you sure?' }
                 = link_to("Delete", phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger')
