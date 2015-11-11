@@ -3,6 +3,7 @@ class Phoenix < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :image_id
+  validates_presence_of :ssh_key_id
   validates_presence_of :user_id
 
   before_update :update_do_floating_ip, if: :floating_ip_changed?

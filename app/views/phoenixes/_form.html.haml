@@ -16,6 +16,10 @@
       .col-sm-10
         = f.select :image_id, @images, {}, class: 'form-control'
     .form-group
+      = f.label :ssh_key_id, "SSH Key", class: label_classes
+      .col-sm-10
+        = f.select :ssh_key_id, @ssh_keys, {}, class: 'form-control'
+    .form-group
       = f.label :droplet_id, "Current droplet (Optional)", class: label_classes
       .col-sm-10
         = f.select :droplet_id, @droplets, {include_blank: true}, class: 'form-control'
@@ -23,10 +27,6 @@
       = f.label :floating_ip, "Floating IP (Optional)", class: label_classes
       .col-sm-10
         = f.select :floating_ip, @floating_ips, {include_blank: true}, class: 'form-control'
-    .form-group
-      = f.label :ssh_key_id, "SSH Key (Optional)", class: label_classes
-      .col-sm-10
-        = f.select :ssh_key_id, @ssh_keys, {include_blank: true}, class: 'form-control'
     .actions
       .col-sm-offset-2.col-sm-10
         = f.submit 'Save', class: 'btn btn-primary'
