@@ -5,7 +5,7 @@ class PhoenixesController < ApplicationController
   before_action :set_extras, only: [:new, :edit]
 
   def index
-    @phoenixes = current_user.phoenixes.all
+    @phoenixes = current_user.phoenixes.order(:created_at)
   end
 
   def new
