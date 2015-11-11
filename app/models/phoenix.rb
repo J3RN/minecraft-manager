@@ -1,9 +1,8 @@
 class Phoenix < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :image_id
-  validates_presence_of :floating_ip
   validates_presence_of :name
+  validates_presence_of :image_id
   validates_presence_of :user_id
 
   before_update :update_do_floating_ip, if: :floating_ip_changed?
@@ -21,15 +20,15 @@ class Phoenix < ActiveRecord::Base
   end
 
   def do_status
-    return unless self.droplet_id.present?
     return unless self.on?
 
     client.droplets.find(id: self.droplet_id).status
   end
 
   def on?
-    id = self.droplet_id
+    return unless self.droplet_id
 
+    id = self.droplet_id
     if id and client.droplets.all.map {|x| x.id}.include? id
       true
     else
@@ -56,7 +55,8 @@ class Phoenix < ActiveRecord::Base
   end
 
   def update_do_floating_ip
-    return unless self.on?
+    return unless self.on? && self.floating_ip
+
     client.floating_ip_actions.assign(droplet_id: self.droplet_id,
                                       ip: self.floating_ip)
   end
