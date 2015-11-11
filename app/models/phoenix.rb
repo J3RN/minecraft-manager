@@ -75,7 +75,8 @@ class Phoenix < ActiveRecord::Base
   def snapshot
     return unless self.on?
 
-    snap_name = "#{self.name} - #{Time.now.strftime('%FT%T%z')}"
+    droplet_name = client.droplets.find(id: self.droplet_id).name
+    snap_name = "#{self.name} - #{droplet_name} - #{Time.now.strftime('%FT%T%z')}"
     client.droplet_actions.snapshot(droplet_id: self.droplet_id,
                                     name: snap_name)
   end
