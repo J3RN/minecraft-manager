@@ -23,6 +23,7 @@ class PhoenixesController < ApplicationController
     if @phoenix.save
       redirect_to phoenixes_url, notice: 'Phoenix was successfully created.'
     else
+      set_extras
       render :new
     end
   end
