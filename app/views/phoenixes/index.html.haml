@@ -1,27 +1,32 @@
 .page-header
-  %h1 Phoenixes
+  %h1
+    Phoenixes
+    = link_to "New phoenix", new_phoenix_path, class: 'btn btn-primary'
 
-%table.table.table-responsive
-  %thead
-    %tr
-      %th Phoenix
-      %th
-      %th
-  %tbody
-    - @phoenixes.each do |phoenix|
-      %tr
-        %td= link_to phoenix.name, edit_phoenix_path(phoenix)
-        %td
-          = form_for phoenix do |f|
-            - if phoenix.active?
-              = f.hidden_field :on, value: false
-              = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
-            - elsif phoenix.on?
-              = phoenix.status
-            - else
-              = f.hidden_field :on, value: true
-              = f.submit 'Turn on', class: ["btn", "btn-primary"], data: { confirm: 'Are you sure?' }
-        %td
-          = link_to(phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }) do
-            %span.glyphicon.glyphicon-remove
-= link_to "New phoenix", new_phoenix_path
+.row
+  - @phoenixes.each do |phoenix|
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          .panel-title= link_to phoenix.name, edit_phoenix_path(phoenix)
+        .panel-body
+          .row
+            .col-md-2 Owner
+            .col-md-10= phoenix.user.username
+
+          .row
+            .col-md-2 IP
+            .col-md-10= phoenix.ip
+
+          .row
+            .col-xs-12
+              = form_for phoenix, html: {class: 'phoenix-index-form'} do |f|
+                - if phoenix.active?
+                  = f.hidden_field :on, value: false
+                  = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
+                - elsif phoenix.on?
+                  = phoenix.status
+                - else
+                  = f.hidden_field :on, value: true
+                  = f.submit 'Turn on', class: ["btn", "btn-primary"], data: { confirm: 'Are you sure?' }
+                = link_to("Delete", phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger')

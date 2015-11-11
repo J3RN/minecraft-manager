@@ -7,23 +7,22 @@
     .form-group
       = f.label :username, class: label_classes
       .col-sm-10
-        = f.text_field :username, autofocus: true, class: 'form_control'
+        = f.text_field :username, autofocus: true, class: 'form-control'
     .form-group
       = f.label :email, class: label_classes
       .col-sm-10
-        = f.email_field :email, autofocus: true, class: 'form_control'
+        = f.email_field :email, autofocus: true, class: 'form-control'
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %div
         Currently waiting confirmation for: #{resource.unconfirmed_email}
     .form-group
       = f.label :access_token, class: label_classes
       .col-sm-10
-        = f.text_field :access_token, class: 'form_control'
+        = f.text_field :access_token, class: 'form-control'
     .form-group
       = f.label :current_password, class: label_classes
-      %i (we need your current password to confirm your changes)
       .col-sm-10
-        = f.password_field :current_password, autocomplete: "off", class: 'form_control'
+        = f.password_field :current_password, autocomplete: "off", class: 'form-control'
     .form-group
       .col-sm-offset-2.col-sm-10
         = f.submit "Update", class: submit_classes
