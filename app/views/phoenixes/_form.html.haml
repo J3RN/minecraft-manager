@@ -1,25 +1,32 @@
-= form_for @phoenix do |f|
-  - if @phoenix.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@phoenix.errors.count, "error")} prohibited this phoenix from being saved:"
-      %ul
-        - @phoenix.errors.full_messages.each do |msg|
-          %li= msg
+.col-md-offset-2.col-md-8
+  = form_for @phoenix, html: {class: 'form-horizontal'} do |f|
+    - if @phoenix.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@phoenix.errors.count, "error")} prohibited this phoenix from being saved:"
+        %ul
+          - @phoenix.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :image_id, "Image"
-    = f.select :image_id, @images
-  .field
-    = f.label :droplet_id, "Current droplet (Optional)"
-    = f.select :droplet_id, @droplets, include_blank: true
-  .field
-    = f.label :floating_ip, "Floating IP (Optional)"
-    = f.select :floating_ip, @floating_ips, include_blank: true
-  .field
-    = f.label :ssh_key_id, "SSH Key (Optional)"
-    = f.select :ssh_key_id, @ssh_keys, include_blank: true
-  .actions
-    = f.submit 'Save'
+    .form-group
+      = f.label :name, class: label_classes
+      .col-sm-10
+        = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :image_id, "Image", class: label_classes
+      .col-sm-10
+        = f.select :image_id, @images, {}, class: 'form-control'
+    .form-group
+      = f.label :droplet_id, "Current droplet (Optional)", class: label_classes
+      .col-sm-10
+        = f.select :droplet_id, @droplets, {include_blank: true}, class: 'form-control'
+    .form-group
+      = f.label :floating_ip, "Floating IP (Optional)", class: label_classes
+      .col-sm-10
+        = f.select :floating_ip, @floating_ips, {include_blank: true}, class: 'form-control'
+    .form-group
+      = f.label :ssh_key_id, "SSH Key (Optional)", class: label_classes
+      .col-sm-10
+        = f.select :ssh_key_id, @ssh_keys, {include_blank: true}, class: 'form-control'
+    .actions
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Save', class: 'btn btn-primary'
