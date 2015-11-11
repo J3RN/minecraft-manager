@@ -19,14 +19,16 @@
             .col-md-10= phoenix.ip
 
           .row
+            .col-md-2 Status
+            .col-md-10= phoenix.total_status
+
+          .row
             .col-xs-12
               = form_for phoenix, html: {class: 'phoenix-index-form'} do |f|
                 - if phoenix.active?
                   = f.hidden_field :on, value: false
                   = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
-                - elsif phoenix.on?
-                  = phoenix.status
-                - else
+                - elsif !phoenix.on?
                   = f.hidden_field :on, value: true
                   = f.submit 'Turn on', class: ["btn", "btn-primary"], data: { confirm: 'Are you sure?' }
                 = link_to("Delete", phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger')
