@@ -28,6 +28,9 @@ gem 'mina'
 # Dotenv for sekrets
 gem 'dotenv-rails'
 
+# Sinatra for Sidekiq dashboard
+gem 'sinatra', require: false
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
