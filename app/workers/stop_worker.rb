@@ -10,7 +10,10 @@ class StopWorker
 
   def perform(phoenix_id)
     phoenix = Phoenix.find(phoenix_id)
-    return unless phoenix.on?
+    unless phoenix.on?
+      phoenix.update!(status: nil)
+      return
+    end
 
     # Update status for being shut down
     phoenix.update!(status: "Burning")

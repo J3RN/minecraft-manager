@@ -4,7 +4,10 @@ class StartWorker
 
   def perform(phoenix_id)
     phoenix = Phoenix.find(phoenix_id)
-    return if phoenix.on?
+    if phoenix.on?
+      phoenix.update!(status: nil)
+      return
+    end
 
     # Set being brought up status
     phoenix.update!(status: "Being born")
