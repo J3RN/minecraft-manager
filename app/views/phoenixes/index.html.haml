@@ -1,18 +1,18 @@
 .page-header
   %h1
     Phoenixes
-    = link_to "New phoenix", new_phoenix_path, class: 'btn btn-primary'
+    = link_to "New phoenix", new_phoenix_path, class: 'btn btn-default'
 
 .row
   - @phoenixes.each do |phoenix|
     .col-md-4
       .panel.panel-default
         .panel-heading
-          .panel-title= link_to phoenix.name, edit_phoenix_path(phoenix)
+          .panel-title= phoenix.name
         .panel-body
           .row
             .col-md-2 Owner
-            .col-md-10= phoenix.user.username
+            .col-md-10= phoenix.owner.username
 
           .row
             .col-md-2 IP
@@ -25,10 +25,12 @@
           .row
             .col-xs-12
               = form_for phoenix, html: {class: 'phoenix-index-form'} do |f|
-                - if phoenix.active?
+                - if phoenix.active? || (phoenix.on? && phoenix.failed?)
                   = f.hidden_field :on, value: false
-                  = f.submit 'Turn off', class: ["btn", "btn-danger"], data: { confirm: 'Are you sure?' }
+                  = f.submit 'Turn off', class: 'btn btn-primary', data: { confirm: 'Are you sure?' }
                 - elsif phoenix.total_status == "Burnt" || phoenix.failed?
                   = f.hidden_field :on, value: true
-                  = f.submit 'Turn on', class: ["btn", "btn-primary"], data: { confirm: 'Are you sure?' }
-                = link_to("Delete", phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger')
+                  = f.submit 'Turn on', class: 'btn btn-primary', data: { confirm: 'Are you sure?' }
+                - if owned? phoenix
+                  = link_to("Edit", edit_phoenix_path(phoenix), class: 'btn btn-default')
+                  = link_to("Delete", phoenix, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger')

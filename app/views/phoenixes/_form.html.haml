@@ -20,6 +20,10 @@
       .col-sm-10
         = f.select :ssh_key_id, @ssh_keys, {}, class: 'form-control'
     .form-group
+      = f.label :user_ids, "Collaborators (Optional)", class: label_classes
+      .col-sm-10
+        = f.select :user_ids, @users, {}, class: 'form-control', multiple: true
+    .form-group
       = f.label :droplet_id, "Current droplet (Optional)", class: label_classes
       .col-sm-10
         = f.select :droplet_id, @droplets, {include_blank: true}, class: 'form-control'

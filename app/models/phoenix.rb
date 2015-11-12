@@ -1,15 +1,16 @@
 class Phoenix < ActiveRecord::Base
-  belongs_to :user
+  has_and_belongs_to_many :users
+  belongs_to :owner, class_name: 'User'
 
   validates_presence_of :name
   validates_presence_of :image_id
   validates_presence_of :ssh_key_id
-  validates_presence_of :user_id
+  validates_presence_of :owner_id
 
   before_update :update_do_floating_ip, if: :floating_ip_changed?
 
   def client
-    @client ||= DropletKit::Client.new(access_token: self.user.access_token)
+    @client ||= DropletKit::Client.new(access_token: self.owner.access_token)
   end
 
   def ip
