@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :phoenixes
+  has_and_belongs_to_many :phoenixes
+  has_many :owned_phoenixes, class_name: 'Phoenix', foreign_key: 'owner_id'
 
   validates_presence_of :username
 end
