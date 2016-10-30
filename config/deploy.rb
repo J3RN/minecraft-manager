@@ -59,7 +59,6 @@ end
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   deploy do
-    invoke :'sidekiq:quiet'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
@@ -76,58 +75,10 @@ task :deploy => :environment do
 end
 
 namespace :sidekiq do
-  # Sets the path to sidekiq.
-  set_default :sidekiq, lambda { "#{bundle_bin} exec sidekiq" }
-
-  # Sets the path to sidekiqctl.
-  set_default :sidekiqctl, lambda { "#{bundle_prefix} sidekiqctl" }
-
-  # Set the default sidekiq PID location
-  set_default :sidekiq_pid, lambda { "#{deploy_to}/#{current_path}/pids/sidekiq.pid" }
-
-  # Set the default sidekiq PID location
-  set_default :sidekiq_log, lambda { "#{deploy_to}/#{current_path}/log/sidekiq.log" }
-
-  desc "Quiet Sidekiq"
-  task :quiet => :environment do
-    queue %[echo "-----> Quiet sidekiq (stop accepting new work)"]
-    queue %{
-      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}`> /dev/null 2>&1; then
-        cd "#{deploy_to}/#{current_path}"
-        #{echo_cmd %[#{sidekiqctl} quiet #{sidekiq_pid}]}
-      else
-        echo 'Skip quiet command (no pid file found)'
-      fi
-    }
-  end
-
-  desc "Stop Sidekiq"
-  task :stop => :environment do
-    queue %[echo "-----> Stop sidekiq"]
-    queue %[
-      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}`> /dev/null 2>&1; then
-        cd "#{deploy_to}/#{current_path}"
-        #{echo_cmd %[#{sidekiqctl} stop #{sidekiq_pid}]}
-      else
-        echo 'Skip stopping sidekiq (no pid file found)'
-      fi
-    ]
-  end
-
-  desc "Start sidekiq"
-  task :start => :environment do
-    queue %[echo "-----> Start sidekiq"]
-    queue %{
-      cd "#{deploy_to}/#{current_path}"
-      #{echo_cmd %[#{sidekiq} -d -e #{rails_env} -P #{sidekiq_pid} -L #{sidekiq_log}] }
-    }
-  end
-
   # ### sidekiq:restart
-  desc "Restart sidekiq"
+  desc "Uses systemd to restart sidekiq"
   task :restart do
-    invoke :'sidekiq:stop'
-    invoke :'sidekiq:start'
+    queue "systemctl --user restart sidekiq.service"
   end
 end
 
