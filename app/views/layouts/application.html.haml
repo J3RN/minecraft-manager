@@ -9,7 +9,7 @@
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default
-      .container-fluid
+      .container
         .navbar-header
           = link_to "Minecraft Manager", root_path, class: 'navbar-brand'
         %ul.nav.navbar-nav.navbar-right
@@ -19,7 +19,7 @@
           - else
             %li= link_to "Log In", new_user_session_path
             %li= link_to "Register", new_user_registration_path
-    .container-fluid
+    .container
       .errors
         - if notice
           .alert.alert-success= notice
