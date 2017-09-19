@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.8'
+
 gem 'rails', '4.2.3'
 gem 'pg', '~> 0.18'
 gem 'sass-rails', '~> 5.0'
@@ -37,4 +39,5 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
+  gem 'factory_girl_rails', '~> 4.5'
 end

@@ -13,37 +13,23 @@ class Phoenix < ActiveRecord::Base
     @client ||= DropletKit::Client.new(access_token: self.owner.access_token)
   end
 
-  def ip
-    self.floating_ip
-  end
-
   def total_status
     self.status || do_status || "Burnt"
-  end
-
-  def do_status
-    return unless self.on?
-
-    client.droplets.find(id: self.droplet_id).status
   end
 
   def on?
     return unless self.droplet_id
 
     id = self.droplet_id
-    if id and client.droplets.all.map {|x| x.id}.include? id
-      true
-    else
-      false
-    end
+    id and client.droplets.all.map {|x| x.id}.include? id
   end
 
   def active?
-    return self.total_status == "active"
+    self.do_status == "active"
   end
 
   def failed?
-    return self.total_status.downcase.include? "fail"
+    self.total_status.downcase.include? "fail"
   end
 
   def create_droplet!
@@ -91,5 +77,11 @@ class Phoenix < ActiveRecord::Base
   def burn!
     return unless self.on?
     client.droplets.delete(id: self.droplet_id)
+  end
+
+  def do_status
+    return unless self.on?
+
+    client.droplets.find(id: self.droplet_id).status
   end
 end
