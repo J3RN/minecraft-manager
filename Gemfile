@@ -39,4 +39,5 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
+  gem 'factory_girl_rails', '~> 4.5'
 end
