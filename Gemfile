@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.8'
+
 gem 'rails', '4.2.3'
 gem 'pg', '~> 0.18'
 gem 'sass-rails', '~> 5.0'
