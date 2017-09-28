@@ -4,18 +4,12 @@ end
 
 User.create!([
   {
-    username: "J3RN",
-    email: "jonarnett90@gmail.com",
-    access_token: ENV["DO_TOKEN"],
-    password: "blargblarg"
-  },
-  {
-    username: "TestUser",
+    username: "Test User",
     email: "test@example.com",
     password: "testtest"
   },
   {
-    username: "TestTest",
+    username: "A Second Test User",
     email: "test@example.org",
     password: "testtest"
   },
