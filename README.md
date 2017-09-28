@@ -6,26 +6,33 @@ I host my Minecraft server on DigitalOcean, who provides me with reasonable rate
 
 ## Solution
 
-Enter Minecraft Manager. What does it do?
+Enter Minecraft Manager! What does it do?
 
 ### When you move the switch to "on"
 
-- Provisions a new droplet with ssh key (optionally), in NYC 3, with 2 GB of RAM. Oh, and using the last image of a server you provisioned with MM, or a pre-set image ID.
-- Updates your first floating IP to point to this new server, if you've set one
+- Provisions a new droplet
+  - in NYC3 (soon to be configurable)
+  - with 2 GB of RAM (soon to be configurable)
+  - using a snapshot from the last time your server was active, or an image of your choosing
+  - with a configured ssh key (optionally)
+  - with a "floating ip" (optionally)
 
 ### When you move the switch to "off"
 
-- Powers off the last droplet you powered on with the manager.
-- Takes a snapshot of that droplet and records it's ID to use for the next droplet.
+- Powers off the droplet.
+- Takes a snapshot of that droplet.
 - Destroys the droplet so it stops charging you money.
 
 **As you can probably tell, this is very much a work in progress. Much more to come soon.**
 
 ### Stretch goals
 
-- WebSockets to live-update the shutdown/startup process
+- JavaScript polling of an API to live-update the shutdown/startup process.
+  - Show details of the "off" and "on" processes such as "powering off the droplet," and "taking a snapshot of the droplet," etc.
 
 ## Setup
+
+Before you do anything else, now would be a good time to [generate an access token on DigitalOcean](https://cloud.digitalocean.com/settings/api/tokens).
 
 To get the app set up, simply run:
 
@@ -33,24 +40,34 @@ To get the app set up, simply run:
 $ ./bin/setup
 ```
 
-Unfortunately, there is no interface currently for adding new users. So, to get your user set up, you'll have to open a Rails console and do that manually.
+This will create two new users with emails "test@example.com" and "test@example.org" and password "testtest" for both. I recommend that you create a new account, as neither of these accounts will have an associated access token.
 
 ## Running the server
 
-You'll need to run both the rails server and Sidekiq simultaneously to get the app to work in it's full capacity.
+You'll need to run both the Rails server and Sidekiq simultaneously to get the app to work in it's full capacity.
 
-Start the rails server:
+Start the Rails server:
 
 ```bash
 bundle exec rails server
 ```
 
-Start Sidekiq
+Start Sidekiq:
 
 ```bash
 bundle exec sidekiq
 ```
 
+You should now be able to visit the running application at http://localhost:3000 and create an account with your access token.
+
+Happy Hacking!
+
 ## Contributing
 
-Fork it, send me a pull request. Please and thank you.
+- Fork the repository.
+- Clone your fork.
+- Create a feature branch (e.g. `feature-add-new-thing`, `bugfix-fix-broken-thing`, etc).
+- Push your changes up to your fork.
+- Send me a pull request.
+
+Please and thank you!
