@@ -1,4 +1,4 @@
-# Minecraft Manager
+# Minecraft Manager ![Travis CI Build Status](https://travis-ci.org/J3RN/minecraft-manager.svg?branch=master)
 
 ## Rationale
 
