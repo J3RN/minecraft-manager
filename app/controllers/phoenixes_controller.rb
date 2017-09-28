@@ -74,7 +74,13 @@ class PhoenixesController < ApplicationController
       client = DropletKit::Client.new(access_token: current_user.access_token)
 
       @droplets = client.droplets.all.to_a.map { |x| [x.name, x.id] }
-      @images = client.images.all.to_a.map { |x| [x.name, x.id] }
+      @images = client.images.all
+                      .sort_by(&:name)
+                      .reverse
+                      .sort_by(&:distribution)
+                      .map do |x|
+        ["#{x.distribution} #{x.name}", x.id]
+      end
       @floating_ips = client.floating_ips.all.to_a.map { |x| x.ip }
       @ssh_keys = client.ssh_keys.all.to_a.map { |x| [x.name, x.id] }
     end
