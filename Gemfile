@@ -24,9 +24,6 @@ gem 'devise'
 # Passenger as the server
 gem 'passenger'
 
-# Mina for deploys
-gem 'mina'
-
 # Dotenv for sekrets
 gem 'dotenv-rails'
 
@@ -40,4 +37,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'awesome_print'
   gem 'factory_girl_rails', '~> 4.5'
+end
+
+group :development do
+  # Capistrano for deploys
+  gem 'capistrano', '~> 3.9'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
