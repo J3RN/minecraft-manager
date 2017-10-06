@@ -30,7 +30,7 @@ set :term_mode, nil
 # `mina deploy` or `mina rake`.
 task :environment do
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.2.3@default]'
+  invoke :'rvm:use[ruby-2.2.8@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
