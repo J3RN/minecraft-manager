@@ -9,6 +9,8 @@ class Phoenix < ActiveRecord::Base
 
   before_update :update_do_floating_ip, if: :floating_ip_changed?
 
+  REGION = 'nyc3'.freeze
+
   def client
     @client ||= DropletKit::Client.new(access_token: self.owner.access_token)
   end
@@ -34,10 +36,10 @@ class Phoenix < ActiveRecord::Base
 
   def create_droplet!
     droplet = DropletKit::Droplet.new(name: SecureRandom.hex(10),
-                                      region: "nyc3",
-                                      image: self.image_id,
-                                      size: '2gb',
-                                      ssh_keys: [self.ssh_key_id])
+                                      region: REGION,
+                                      image: image_id,
+                                      size: size,
+                                      ssh_keys: [ssh_key_id])
     created = client.droplets.create(droplet)
     self.update!(droplet_id: created.id)
   end

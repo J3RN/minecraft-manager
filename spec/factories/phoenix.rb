@@ -2,9 +2,10 @@ FactoryGirl.define do
   factory :phoenix do
     owner
 
-    name "FooBar"
+    name 'Foobar'
     image_id 1
     ssh_key_id 1
+    size '2gb'
 
     factory :phoenix_with_droplet do
       droplet_id 1

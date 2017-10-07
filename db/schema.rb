@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111184545) do
+ActiveRecord::Schema.define(version: 20171007005249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151111184545) do
     t.integer  "ssh_key_id"
     t.string   "status"
     t.integer  "owner_id"
+    t.string   "size",        null: false
   end
 
   create_table "phoenixes_users", force: :cascade do |t|
