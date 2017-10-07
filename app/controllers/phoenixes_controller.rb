@@ -63,42 +63,50 @@ class PhoenixesController < ApplicationController
   end
 
   private
-    def set_phoenix
-      @phoenix = Phoenix.find(params[:id])
+
+  def set_phoenix
+    @phoenix = Phoenix.find(params[:id])
+  end
+
+  def set_extras
+    owner_id = @phoenix.try(:owner_id) || current_user.id
+    @users = User.where.not(id: owner_id).map { |x| [x.username, x.id] }
+
+    client = DropletKit::Client.new(access_token: current_user.access_token)
+
+    @droplets     = client.droplets.all.to_a.map { |x| [x.name, x.id] }
+    @floating_ips = client.floating_ips.all.to_a.map(&:ip)
+    @ssh_keys     = client.ssh_keys.all.to_a.map { |x| [x.name, x.id] }
+    @sizes        = client.sizes.all.select do |x|
+      x[:regions].include? Phoenix::REGION
+    end.map {|x| [size_name(x), x.slug]}
+    @images       = client.images.all
+                          .sort_by(&:name)
+                          .reverse
+                          .sort_by(&:distribution)
+                          .map do |x|
+      ["#{x.distribution} #{x.name}", x.id]
     end
+  end
 
-    def set_extras
-      owner_id = @phoenix.try(:owner_id) || current_user.id
-      @users = User.where.not(id: owner_id).map { |x| [x.username, x.id] }
+  def size_name(size)
+    "#{size.memory} MB RAM, #{size.vcpus} CPUs, #{size.disk} GB SSD"
+  end
 
-      client = DropletKit::Client.new(access_token: current_user.access_token)
+  def ensure_access_token!
+    return if current_user.access_token.present?
 
-      @droplets = client.droplets.all.to_a.map { |x| [x.name, x.id] }
-      @images = client.images.all
-                      .sort_by(&:name)
-                      .reverse
-                      .sort_by(&:distribution)
-                      .map do |x|
-        ["#{x.distribution} #{x.name}", x.id]
-      end
-      @floating_ips = client.floating_ips.all.to_a.map { |x| x.ip }
-      @ssh_keys = client.ssh_keys.all.to_a.map { |x| [x.name, x.id] }
-    end
+    redirect_to phoenixes_url, alert: 'You need to add an access token to create phoenixes!'
+  end
 
-    def ensure_access_token!
-      return if current_user.access_token.present?
+  def ensure_ownership!
+    return if current_user == @phoenix.owner
 
-      redirect_to phoenixes_url, alert: 'You need to add an access token to create phoenixes!'
-    end
+    redirect_to phoenixes_url, alert: 'You can only edit phoenixes you own!'
+  end
 
-    def ensure_ownership!
-      return if current_user == @phoenix.owner
-
-      redirect_to phoenixes_url, alert: 'You can only edit phoenixes you own!'
-    end
-
-    def phoenix_params
-      params.require(:phoenix).permit(:droplet_id, :image_id, :floating_ip,
-                                      :name, :ssh_key_id, :on, user_ids: [])
-    end
+  def phoenix_params
+    params.require(:phoenix).permit(:droplet_id, :image_id, :floating_ip, :name,
+                                    :ssh_key_id, :on, :size, user_ids: [])
+  end
 end
