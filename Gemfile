@@ -28,7 +28,7 @@ gem 'haml-rails', '~> 1.0'
 gem 'bootstrap-sass'
 
 # User account management
-gem 'devise', '~> 3.5'
+gem 'devise', '~> 4.3'
 
 # Application server
 gem 'passenger'
