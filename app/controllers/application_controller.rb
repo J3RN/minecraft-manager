@@ -9,14 +9,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:username, :email, :password, :password_confirmation,
-               :access_token)
-    end
+    sign_up_keys = %i[
+      username
+      email
+      password
+      password_confirmation
+      access_token
+    ]
+    account_update_keys = sign_up_keys << :current_password
 
-    devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:username, :email, :password, :password_confirmation,
-               :current_password, :access_token)
-    end
+    devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_keys)
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: account_update_keys)
   end
 end
