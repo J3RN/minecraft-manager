@@ -13,7 +13,7 @@ FactoryGirl.define do
         end
 
         after(:create) do |user, evaluator|
-          create_list(:phoenix, evaluator.phoenixes_count, owner: user)
+          create_list(:phoenix, evaluator.phoenixes_count, owner: user, users: [user])
         end
       end
     end
