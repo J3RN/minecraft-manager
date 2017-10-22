@@ -48,6 +48,7 @@ end
 
 group :test do
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.0'
   gem 'vcr'
   gem 'webmock'

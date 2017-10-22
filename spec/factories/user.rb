@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :user do
-    username  "J3RN"
-    password  "foobarbaz"
-    email     "foo@example.com"
+    username  { Faker::Internet.user_name }
+    password  { Faker::Internet.password }
+    email     { Faker::Internet.safe_email}
 
     factory :user_with_access_token, aliases: [:owner] do
-      access_token 'asdfasfdasdfasdfasdf'
+      access_token { Faker::Internet.password }
 
       factory :user_with_phoenixes do
         transient do
