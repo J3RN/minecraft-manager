@@ -1,0 +1,948 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/droplets?page=1&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7b4bd8060aa8bf78e978b7a2993abf1a1508645734; expires=Mon, 22-Oct-18
+        04:15:34 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4969'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - '08597979-be03-4a7b-b45c-c5cd9c6994f8'
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.122569'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2e0ca2e71d3-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"droplets":[],"links":{},"meta":{"total":0}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:34 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/floating_ips?page=1&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dd053fa43f1b5ab7685d6cd26b3223cd11508645734; expires=Mon, 22-Oct-18
+        04:15:34 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"ad1eb943ba6c23415eaef494978ad118"
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4968'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 4d4f87e8-f846-4dbb-a24d-3e3e40eb2484
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.145289'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2e38d8b54e6-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"floating_ips":[{"ip":"12.34.56.78","droplet":null,"region":{"name":"New
+        York 3","slug":"nyc3","sizes":["512mb","1gb","2gb","c-2","4gb","c-4","8gb","c-8","16gb","m-16gb","c-16","32gb","m-32gb","48gb","c-32","m-64gb","64gb","m-128gb","m-224gb"],"features":["private_networking","backups","ipv6","metadata","install_agent","storage"],"available":true},"locked":false}],"links":{},"meta":{"total":1}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:35 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/account/keys?page=1&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db768b3cf0511d98c275524c0697b7cdc1508645735; expires=Mon, 22-Oct-18
+        04:15:35 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"f54f2b86e46c2438dd56d60e749a4204"
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4967'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - e281d908-1265-4001-acfb-ec33a506daad
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.228524'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2e63e6c54e6-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ssh_keys":[],"links":{},"meta":{"total":0}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:35 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/sizes?page=1&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcb8f57af3fd4dcfeb0a7526c9ed719711508645735; expires=Mon, 22-Oct-18
+        04:15:35 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4966'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - '0875fc76-213a-4223-bae6-e0bfb435ede9'
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.398731'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2e95bc72519-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"sizes":[{"slug":"512mb","memory":512,"vcpus":1,"disk":20,"transfer":1.0,"price_monthly":5.0,"price_hourly":0.00744,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"1gb","memory":1024,"vcpus":1,"disk":30,"transfer":2.0,"price_monthly":10.0,"price_hourly":0.01488,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"2gb","memory":2048,"vcpus":2,"disk":40,"transfer":3.0,"price_monthly":20.0,"price_hourly":0.02976,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"c-2","memory":3072,"vcpus":2,"disk":20,"transfer":5.0,"price_monthly":40.0,"price_hourly":0.06,"regions":["ams3","blr1","fra1","lon1","nyc1","nyc3","sfo2","sgp1","tor1"],"available":true},{"slug":"4gb","memory":4096,"vcpus":2,"disk":60,"transfer":4.0,"price_monthly":40.0,"price_hourly":0.05952,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"c-4","memory":6144,"vcpus":4,"disk":20,"transfer":5.0,"price_monthly":80.0,"price_hourly":0.119,"regions":["ams3","blr1","fra1","lon1","nyc1","nyc3","sfo2","sgp1","tor1"],"available":true},{"slug":"8gb","memory":8192,"vcpus":4,"disk":80,"transfer":5.0,"price_monthly":80.0,"price_hourly":0.11905,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"c-8","memory":12288,"vcpus":8,"disk":20,"transfer":5.0,"price_monthly":160.0,"price_hourly":0.238,"regions":["ams3","blr1","fra1","lon1","nyc1","nyc3","sfo2","sgp1","tor1"],"available":true},{"slug":"16gb","memory":16384,"vcpus":8,"disk":160,"transfer":6.0,"price_monthly":160.0,"price_hourly":0.2381,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"m-16gb","memory":16384,"vcpus":2,"disk":30,"transfer":6.0,"price_monthly":120.0,"price_hourly":0.17857,"regions":["blr1","fra1","lon1","nyc1","nyc3","sfo2","tor1"],"available":true},{"slug":"c-16","memory":24576,"vcpus":16,"disk":20,"transfer":5.0,"price_monthly":320.0,"price_hourly":0.476,"regions":["ams3","blr1","fra1","lon1","nyc1","nyc3","sfo2","sgp1","tor1"],"available":true},{"slug":"32gb","memory":32768,"vcpus":12,"disk":320,"transfer":7.0,"price_monthly":320.0,"price_hourly":0.47619,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"m-32gb","memory":32768,"vcpus":4,"disk":90,"transfer":7.0,"price_monthly":240.0,"price_hourly":0.35714,"regions":["blr1","fra1","lon1","nyc1","nyc3","sfo2","tor1"],"available":true},{"slug":"48gb","memory":49152,"vcpus":16,"disk":480,"transfer":8.0,"price_monthly":480.0,"price_hourly":0.71429,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"c-32","memory":49152,"vcpus":32,"disk":20,"transfer":5.0,"price_monthly":640.0,"price_hourly":0.952,"regions":["ams3","blr1","fra1","lon1","nyc1","nyc3","sfo2","sgp1","tor1"],"available":true},{"slug":"m-64gb","memory":65536,"vcpus":8,"disk":200,"transfer":8.0,"price_monthly":480.0,"price_hourly":0.71429,"regions":["blr1","fra1","lon1","nyc1","nyc3","sfo2","tor1"],"available":true},{"slug":"64gb","memory":65536,"vcpus":20,"disk":640,"transfer":9.0,"price_monthly":640.0,"price_hourly":0.95238,"regions":["ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sgp1","tor1"],"available":true},{"slug":"m-128gb","memory":131072,"vcpus":16,"disk":340,"transfer":9.0,"price_monthly":960.0,"price_hourly":1.42857,"regions":["blr1","fra1","lon1","nyc1","nyc3","sfo2","tor1"],"available":true},{"slug":"m-224gb","memory":229376,"vcpus":32,"disk":500,"transfer":10.0,"price_monthly":1680.0,"price_hourly":2.5,"regions":["blr1","fra1","lon1","nyc1","nyc3","sfo2","tor1"],"available":true}],"links":{},"meta":{"total":19}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:36 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=1&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6e51bea0608ffe6174e4f33319a07b2d1508645736; expires=Mon, 22-Oct-18
+        04:15:36 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4965'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - aed83eea-663b-481f-92d4-213ae64837f8
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.239891'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2ed6a1f25bb-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":28507610,"name":"1548.2.0 (beta)","distribution":"CoreOS","slug":"coreos-beta","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-12T20:21:30Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.38},{"id":13764801,"name":"Elixir
+        on 14.04","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2015-09-30T15:42:07Z","min_disk_size":30,"type":"snapshot","size_gigabytes":1.85},{"id":14782899,"name":"6.7
+        x32","distribution":"CentOS","slug":"centos-6-5-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2015-12-10T17:10:48Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.5},{"id":14782952,"name":"6.7
+        x64","distribution":"CentOS","slug":"centos-6-5-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2015-12-10T17:19:06Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.53},{"id":16071652,"name":"cloudbench-ycsb-on-1404.030216-1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-03-02T16:16:02Z","min_disk_size":60,"type":"snapshot","size_gigabytes":1.35},{"id":16071743,"name":"cloudbench-hibench-on-1404.030216-1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-03-02T16:41:16Z","min_disk_size":60,"type":"snapshot","size_gigabytes":2.25},{"id":16082940,"name":"cloudbench-nullworkload-on-1404.030316-6","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-03-03T07:39:02Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.9},{"id":16376426,"name":"Cassandra
+        on 14.04","distribution":"Ubuntu","slug":"cassandra","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-03-21T04:25:45Z","min_disk_size":30,"type":"snapshot","size_gigabytes":0.59},{"id":16623283,"name":"7.10
+        x32","distribution":"Debian","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-04-04T18:11:05Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.3},{"id":16623308,"name":"7.10
+        x64","distribution":"Debian","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-04-04T18:18:11Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.3},{"id":17384153,"name":"7.2
+        x64","distribution":"CentOS","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-05-17T16:17:10Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.43},{"id":17550956,"name":"hadoop1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-05-26T22:25:41Z","min_disk_size":60,"type":"snapshot","size_gigabytes":2.29},{"id":17551182,"name":"cassandra1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-05-26T22:37:32Z","min_disk_size":60,"type":"snapshot","size_gigabytes":1.43},{"id":18027532,"name":"24
+        x64","distribution":"Fedora","slug":"fedora-24-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-06-21T22:36:10Z","min_disk_size":20,"type":"snapshot","size_gigabytes":3.22},{"id":18285322,"name":"GitLab
+        8.9.4 CE on 14.04","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-07-05T07:17:11Z","min_disk_size":30,"type":"snapshot","size_gigabytes":0.76},{"id":18290419,"name":"7.11
+        x32","distribution":"Debian","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-07-05T21:26:04Z","min_disk_size":20,"type":"snapshot","size_gigabytes":20.97},{"id":18325354,"name":"7.2
+        x64","distribution":"CentOS","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-07-07T16:11:45Z","min_disk_size":20,"type":"snapshot","size_gigabytes":20.97},{"id":21419098,"name":"[EOL]
+        7.2.1511 x64","distribution":"CentOS","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-12-09T14:08:49Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.5},{"id":21669205,"name":"16.04.1
+        x64","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2016-12-21T16:06:27Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.33},{"id":22580948,"name":"1235.9.0
+        (stable)","distribution":"CoreOS","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-02-02T17:36:26Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.32}],"links":{"pages":{"last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=2&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:36 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=2&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dd8161d7e875cf7f706506b1f8b76fee91508645737; expires=Mon, 22-Oct-18
+        04:15:37 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4964'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 9673df09-b861-49d0-b9ef-abeaa2591971
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.340659'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2f0aa4e55ac-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":22601368,"name":"16.04.1 x64","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-02-03T13:25:18Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.33},{"id":23219707,"name":"Docker
+        17.03.0-ce on 14.04","distribution":"Ubuntu","slug":"docker","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-03-03T16:10:53Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.5},{"id":23220211,"name":"25
+        x64 Atomic","distribution":"Fedora","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-03-03T17:31:51Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.67},{"id":24081356,"name":"10.3
+        x64 zfs","distribution":"FreeBSD","slug":"freebsd-10-3-x64-zfs","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-04-10T23:57:15Z","min_disk_size":20,"type":"snapshot","size_gigabytes":1.0},{"id":24081552,"name":"10.3
+        x64","distribution":"FreeBSD","slug":"freebsd-10-3-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-04-11T00:03:44Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.95},{"id":24257846,"name":"12.04.5
+        x32","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-04-18T21:16:55Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.32},{"id":24258016,"name":"12.04.5
+        x64","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-04-18T21:21:36Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.34},{"id":24914827,"name":"26
+        x64 [BETA/UNSUPPORTED]","distribution":"Fedora","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-05-17T01:03:27Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.25},{"id":25256988,"name":"14.04.5
+        x64","distribution":"Ubuntu","slug":"ubuntu-14-04-x64-do","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-05-31T19:21:59Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.46},{"id":25256991,"name":"14.04.5
+        x32","distribution":"Ubuntu","slug":"ubuntu-14-04-x32-do","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-05-31T19:23:18Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.43},{"id":25430232,"name":"cloudbench-nullworkload-on-1604.060117-1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-07T21:50:34Z","min_disk_size":20,"type":"snapshot","size_gigabytes":1.92},{"id":25430312,"name":"cloudbench-hibench-hadoop-on-1604.060117-1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-07T21:53:33Z","min_disk_size":20,"type":"snapshot","size_gigabytes":3.55},{"id":25568418,"name":"cloudbench-ycsb-cassandra-on-1604.060117-1","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-13T16:11:30Z","min_disk_size":20,"type":"snapshot","size_gigabytes":2.51},{"id":25570414,"name":"26
+        x64 [BETA]","distribution":"Fedora","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-13T20:33:45Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.24},{"id":25640707,"name":"11.0
+        x64 ZFS","distribution":"FreeBSD","slug":"freebsd-11-0-x64-zfs","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-16T15:44:49Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.84},{"id":25640715,"name":"11.0
+        x64","distribution":"FreeBSD","slug":"freebsd-11-0-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-16T15:46:35Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.82},{"id":25909008,"name":"25
+        Atomic x64","distribution":"Fedora","slug":"fedora-25-x64-atomic","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-27T23:49:57Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.7},{"id":25909727,"name":"16.10
+        x64","distribution":"Ubuntu","slug":"ubuntu-16-10-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-28T00:15:55Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.35},{"id":25948852,"name":"16.10
+        x32","distribution":"Ubuntu","slug":"ubuntu-16-10-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-29T16:23:06Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.3},{"id":26041969,"name":"25
+        x64","distribution":"Fedora","slug":"fedora-25-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-03T15:51:43Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.19}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=1&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=3&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:37 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=3&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=df3a36f7c86e7a8085ca100ce5c3dc63e1508645737; expires=Mon, 22-Oct-18
+        04:15:37 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4963'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - e4d39dd2-4de0-4691-aeac-7f89ac3465cd
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.202341'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2f45c3010bd-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":26398282,"name":"MachineLearning on 16.04-20170718","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-18T13:11:40Z","min_disk_size":20,"type":"snapshot","size_gigabytes":2.15},{"id":26399442,"name":"26
+        x64","distribution":"Fedora","slug":"fedora-26-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-18T16:39:41Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.24},{"id":26519966,"name":"8.9
+        x32","distribution":"Debian","slug":"debian-8-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-23T14:40:13Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.38},{"id":26520803,"name":"8.9
+        x64","distribution":"Debian","slug":"debian-8-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-23T17:32:58Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.38},{"id":26671396,"name":"11.1
+        x64","distribution":"FreeBSD","slug":"freebsd-11-1-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-29T21:47:10Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.6899999999999999},{"id":26671397,"name":"11.1
+        x64 ZFS","distribution":"FreeBSD","slug":"freebsd-11-1-x64-zfs","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-07-29T21:47:21Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.7},{"id":27150538,"name":"-
+        DO-Recovery 17.04.20170818","distribution":"Ubuntu","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-18T18:17:31Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.22},{"id":27663881,"name":"16.04.3
+        x64","distribution":"Ubuntu","slug":"ubuntu-16-04-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-08T14:33:39Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.35},{"id":27663903,"name":"17.04
+        x32","distribution":"Ubuntu","slug":"ubuntu-17-04-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-08T14:37:35Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.3},{"id":28108256,"name":"7.4.1708
+        x64","distribution":"CentOS","slug":"centos-7-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-26T18:36:06Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.38},{"id":28132853,"name":"v1.1.0","distribution":"RancherOS","slug":"rancheros","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-27T17:35:34Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.05},{"id":28158115,"name":"7.11
+        x64","distribution":"Debian","slug":"debian-7-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-28T18:24:33Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.36},{"id":28158128,"name":"7.11
+        x32","distribution":"Debian","slug":"debian-7-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-28T18:26:34Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.36},{"id":28158154,"name":"26
+        x64 Atomic [TESTING]","distribution":"Fedora","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-28T18:30:48Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.58},{"id":28158283,"name":"27
+        x64 TESTING","distribution":"Fedora","slug":null,"public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-28T19:01:26Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.23},{"id":28282122,"name":"10.4
+        x64 ZFS","distribution":"FreeBSD","slug":"freebsd-10-4-x64-zfs","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-03T18:24:11Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.75},{"id":28282143,"name":"10.4
+        x64","distribution":"FreeBSD","slug":"freebsd-10-4-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-03T18:27:29Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.72},{"id":28331017,"name":"26
+        Atomic x64","distribution":"Fedora","slug":"fedora-26-x64-atomic","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-05T14:58:41Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.73},{"id":28415447,"name":"9.2
+        x64","distribution":"Debian","slug":"debian-9-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-09T00:20:14Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.59},{"id":28506965,"name":"14.04.5
+        x64","distribution":"Ubuntu","slug":"ubuntu-14-04-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-12T20:07:11Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.27}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=2&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=4&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:38 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=4&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d4b4f66799a59e4084a7bbe3c678e4bd81508645738; expires=Mon, 22-Oct-18
+        04:15:38 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4962'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 82abef7e-f1aa-4baa-8ef7-55b065ef8b94
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.269240'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2f76e1271cd-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":28509813,"name":"1520.6.0 (stable)","distribution":"CoreOS","slug":"coreos-stable","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-12T21:11:37Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.37},{"id":28509815,"name":"1562.1.0
+        (alpha)","distribution":"CoreOS","slug":"coreos-alpha","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-12T21:11:40Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.38},{"id":28514939,"name":"16.04.3
+        x32","distribution":"Ubuntu","slug":"ubuntu-16-04-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-13T00:05:07Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.29},{"id":28516306,"name":"14.04.5
+        x32","distribution":"Ubuntu","slug":"ubuntu-14-04-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-13T00:37:13Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.26},{"id":28516325,"name":"17.04
+        x64","distribution":"Ubuntu","slug":"ubuntu-17-04-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-13T00:37:53Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.36},{"id":28641271,"name":"17.10
+        x64","distribution":"Ubuntu","slug":"ubuntu-17-10-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-18T00:41:05Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.32},{"id":28657530,"name":"6.9
+        x32","distribution":"CentOS","slug":"centos-6-x32","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-18T20:21:25Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.33},{"id":28724323,"name":"6.9
+        x64","distribution":"CentOS","slug":"centos-6-x64","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-10-21T04:23:30Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.33},{"id":24232319,"name":"Ruby-on-Rails
+        on 16.04","distribution":"Ubuntu","slug":"ruby-on-rails-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-04-17T18:09:13Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.54},{"id":24976861,"name":"Dokku
+        0.9.4 on 16.04","distribution":"Ubuntu","slug":"dokku-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-05-19T20:25:37Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.58},{"id":25399919,"name":"Discourse
+        2.0.20170531 on 16.04","distribution":"Ubuntu","slug":"discourse-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-06-06T17:44:03Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.78},{"id":26933274,"name":"Django
+        1.8.7 on 16.04","distribution":"Ubuntu","slug":"django-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-09T19:47:04Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.48},{"id":27223373,"name":"MongoDB
+        3.4.7 on 16.04","distribution":"Ubuntu","slug":"mongodb-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-21T18:49:54Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.45},{"id":27223505,"name":"NodeJS
+        6.11.2 on 16.04","distribution":"Ubuntu","slug":"node-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-21T19:10:02Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.36},{"id":27248346,"name":"MEAN
+        on 16.04","distribution":"Ubuntu","slug":"mean-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-22T19:38:57Z","min_disk_size":30,"type":"snapshot","size_gigabytes":1.29},{"id":27419663,"name":"Machine
+        Learning and AI","distribution":"Ubuntu","slug":"ml-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-08-29T18:41:21Z","min_disk_size":20,"type":"snapshot","size_gigabytes":1.8},{"id":27493072,"name":"Docker
+        17.05.0-ce on 16.04","distribution":"Ubuntu","slug":"docker-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-01T15:47:34Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.68},{"id":27768625,"name":"LEMP
+        on 16.04","distribution":"Ubuntu","slug":"lemp-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-12T22:45:51Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.43},{"id":27768717,"name":"WordPress
+        4.7 on 16.04","distribution":"Ubuntu","slug":"wordpress-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-12T22:49:52Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.45},{"id":27768983,"name":"PhpMyAdmin
+        on 16.04","distribution":"Ubuntu","slug":"phpmyadmin-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-12T23:00:56Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.45}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=3&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=5&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:38 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=5&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d4b4f66799a59e4084a7bbe3c678e4bd81508645738; expires=Mon, 22-Oct-18
+        04:15:38 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4961'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 863977d9-1305-412f-be14-019b26dd5559
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.370079'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2facf9871cd-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":27768998,"name":"MySQL on 16.04","distribution":"Ubuntu","slug":"mysql-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-12T23:01:28Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.45},{"id":27786882,"name":"LAMP
+        on 16.04","distribution":"Ubuntu","slug":"lamp-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-13T17:07:37Z","min_disk_size":20,"type":"snapshot","size_gigabytes":0.43},{"id":28008792,"name":"GitLab
+        10.0.0-ce.0 on 16.04","distribution":"Ubuntu","slug":"gitlab-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-22T16:19:02Z","min_disk_size":60,"type":"snapshot","size_gigabytes":0.83},{"id":28082684,"name":"Ghost
+        on 16.04","distribution":"Ubuntu","slug":"ghost-16-04","public":true,"regions":["nyc1","sfo1","nyc2","ams2","sgp1","lon1","nyc3","ams3","fra1","tor1","sfo2","blr1"],"created_at":"2017-09-25T16:37:29Z","min_disk_size":30,"type":"snapshot","size_gigabytes":0.57}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=4&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=6&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:39 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=6&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6b5cfb684b52192d9ae91211f4640d311508645739; expires=Mon, 22-Oct-18
+        04:15:39 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4960'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 77059fd7-86e8-4121-8d6a-0e4f5f65b164
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.219587'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a2fe6e1f551c-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":12345678,"name":"My Image - 2015-11-09T00:34:46-0500","distribution":"Debian","slug":null,"public":false,"regions":["nyc3"],"created_at":"2015-11-09T05:34:47Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.83}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=5&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=7&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:39 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=7&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=ddeeef74224c0d9d9f623722b0106a98e1508645739; expires=Mon, 22-Oct-18
+        04:15:39 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4959'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 3952ddc4-015d-4835-8ba9-9707eb1e704d
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.280400'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a30189f754e6-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":12345678,"name":"My Image - 2015-11-09T00:34:46-0500","distribution":"Debian","slug":null,"public":false,"regions":["nyc3"],"created_at":"2015-11-09T05:34:47Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.83}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=5&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=7&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:40 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=8&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de138c8844d7bb522d530d13d01ce9a271508645740; expires=Mon, 22-Oct-18
+        04:15:40 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4958'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - e9515d31-661a-4b04-b3cc-daa0d13c7061
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.440446'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a3049d60254f-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":12345678,"name":"My Image - 2015-11-09T00:34:46-0500","distribution":"Debian","slug":null,"public":false,"regions":["nyc3"],"created_at":"2015-11-09T05:34:47Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.83}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=5&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=7&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:41 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=9&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db4ccd5fbb8cdfb1198449bc5c7880f051508645741; expires=Mon, 22-Oct-18
+        04:15:41 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4957'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - 4556b476-d91c-4c82-aae8-ade9b9551b5f
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.323031'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a30b7f6225bb-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":12345678,"name":"My Image - 2015-11-09T00:34:46-0500","distribution":"Debian","slug":null,"public":false,"regions":["nyc3"],"created_at":"2015-11-09T05:34:47Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.83}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=5&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=7&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:41 GMT
+- request:
+    method: get
+    uri: https://api.digitalocean.com/v2/images?page=10&per_page=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 04:15:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d80f7dd935868035ec3534dfb64eb177f1508645741; expires=Mon, 22-Oct-18
+        04:15:41 GMT; path=/; domain=.digitalocean.com; HttpOnly
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"6178ecf165cc6de5877b5719c521523d"
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4956'
+      Ratelimit-Reset:
+      - '1508645312'
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Gateway:
+      - Edge-Gateway
+      X-Request-Id:
+      - c8a90464-f49e-4e42-93cf-ccc144c437e8
+      X-Response-From:
+      - service
+      X-Runtime:
+      - '0.268739'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3b19a30ebffb2585-ORD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images":[{"id":12345678,"name":"My Image - 2015-11-09T00:34:46-0500","distribution":"Debian","slug":null,"public":false,"regions":["nyc3"],"created_at":"2015-11-09T05:34:47Z","min_disk_size":40,"type":"snapshot","size_gigabytes":1.83}],"links":{"pages":{"first":"https://api.digitalocean.com/v2/images?page=1&per_page=20","prev":"https://api.digitalocean.com/v2/images?page=5&per_page=20","last":"https://api.digitalocean.com/v2/images?page=10&per_page=20","next":"https://api.digitalocean.com/v2/images?page=7&per_page=20"}},"meta":{"total":183}}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 04:15:42 GMT
+recorded_with: VCR 3.0.3

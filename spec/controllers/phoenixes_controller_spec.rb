@@ -1,7 +1,6 @@
 describe PhoenixesController do
   before do
-    @phoenix = create(:phoenix)
-    sign_in @phoenix.owner
+    sign_in create(:user_with_phoenixes)
   end
 
   describe 'GET index' do
@@ -20,7 +19,9 @@ describe PhoenixesController do
 
   describe 'GET new' do
     before do
-      get :new
+      VCR.use_cassette('droplet fetch') do
+        get :new
+      end
     end
 
     it 'renders sucessfully' do
