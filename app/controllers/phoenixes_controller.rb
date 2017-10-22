@@ -2,7 +2,7 @@ class PhoenixesController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_access_token!, only: [:new]
   before_action :set_phoenix, only: [:edit, :update, :destroy]
-  before_action :ensure_ownership!, only: [:edit, :destroy]
+  before_action :ensure_ownership!, only: [:edit, :update, :destroy]
   before_action :set_extras, only: [:new, :edit]
 
   def index
