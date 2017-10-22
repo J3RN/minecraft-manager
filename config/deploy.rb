@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:J3RN/minecraft-manager.git'
 
 # Configure RVM
 set :rvm_type, :system
-set :rvm_ruby_version, '2.2.8'
+set :rvm_ruby_version, '2.4.2'
 
 # Default value for :linked_files is []
 append :linked_files, '.env'
