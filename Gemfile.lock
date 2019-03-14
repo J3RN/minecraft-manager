@@ -162,8 +162,8 @@ GEM
       rake (>= 0.8.1)
     pg (0.21.0)
     public_suffix (3.0.0)
-    rack (1.6.8)
-    rack-protection (1.5.3)
+    rack (1.6.11)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
