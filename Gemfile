@@ -19,7 +19,7 @@ gem 'sidekiq', '~> 5.0'
 gem 'sinatra', require: false
 
 # DigitalOcean API gem <3
-gem 'droplet_kit', '~> 2.0'
+gem 'droplet_kit', '~> 3.0'
 
 # Haml templating language
 gem 'haml-rails', '~> 1.0'
